@@ -35,6 +35,7 @@ public class User : IdentityUser
         if (!hasUpperCase || !hasLowerCase || !hasDigit || !hasSpecialChar)
             throw new ArgumentException(@"Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
 
+        Id = Guid.CreateVersion7().ToString();
         UserName = request.Email;
         Email = request.Email;
         PasswordToSave = request.Password;

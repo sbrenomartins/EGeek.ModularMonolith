@@ -1,4 +1,5 @@
 using EGeek.Api.Exceptions;
+using EGeek.Catalog.Configuration;
 using EGeek.Id.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -11,6 +12,7 @@ builder.Services.AddExceptionHandler<GlobalException>();
 builder.Services.AddProblemDetails();
 
 IdModularExtension.Apply(builder.Services, builder.Configuration);
+CatalogModularExtension.Apply(builder.Services, builder.Configuration);
 
 builder.Services.AddAuthentication(x =>
 {

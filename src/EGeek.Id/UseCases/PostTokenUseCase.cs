@@ -35,6 +35,7 @@ internal static class PostTokenUseCase
 
         var userClaims = await userManager.GetClaimsAsync(user);
         userClaims.Add(new Claim("id", user.Id!));
+        userClaims.Add(new Claim(ClaimTypes.Email, user.Email!));
 
         var token = new JwtSecurityToken(configuration["Jwt:Issuer"],
                                          configuration["Jwt:Audience"],
